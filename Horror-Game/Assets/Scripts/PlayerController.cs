@@ -18,12 +18,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float standHeight; // Высота игрока при бездействии
     [SerializeField] private float crouchHeight; // Высота игрока на корточках
 
-    // Компоненты принадлежащие Player
     private CharacterController characterController;
+    private Animator animator;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
@@ -55,16 +56,26 @@ public class PlayerController : MonoBehaviour
         // Изменение скорости игрока
         if (isCrouching)
         {
+            animator.SetInteger("condition", 3);
             characterController.height = crouchHeight; // Высота персонажа на корточках
 
             currentSpeed = Mathf.Lerp(currentSpeed, crouchSpeed, Time.deltaTime * smoothSpeed);
         }
         else if (Input.GetKey(KeyCode.LeftShift))
         {
+            animator.SetInteger("condition", 2);
+
             currentSpeed = Mathf.Lerp(currentSpeed, runSpeed, Time.deltaTime * smoothSpeed);
+        }
+        else if (horizontalInrut == 0.0f && verticalInput == 0.0f)
+        {
+            animator.SetInteger("condition", 0);
+
+            currentSpeed = 0.0f; // Если длина вектора движения меньше пороговой величины, игрок считается неподвижным
         }
         else
         {
+            animator.SetInteger("condition", 1);
             characterController.height = standHeight;
 
             currentSpeed = Mathf.Lerp(currentSpeed, moveSpeed, Time.deltaTime * smoothSpeed);
@@ -73,6 +84,8 @@ public class PlayerController : MonoBehaviour
         // Проверка на бег на корточках
         if (isCrouching && Input.GetKey(KeyCode.LeftShift))
         {
+            animator.SetInteger("condition", 3);
+
             currentSpeed = Mathf.Lerp(currentSpeed, crouchSpeed, Time.deltaTime * smoothSpeed);
         }
 

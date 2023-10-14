@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 57959671}
   - component: {fileID: 57959672}
   - component: {fileID: 57959673}
+  - component: {fileID: 57959674}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -215,6 +216,28 @@ MonoBehaviour:
   item3Prefab: {fileID: 6560101457167434988, guid: 3984d9e9ee338964ca85e6a5fbe17ce1, type: 3}
   handController: {fileID: 761782094}
   currentInventorySlot: 0
+--- !u!95 &57959674
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57959669}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3fa5044b789f8ae4c804a90f415de813, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &239490606
 GameObject:
   m_ObjectHideFlags: 0
