@@ -36,25 +36,29 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDirection = transform.forward * verticalInput + transform.right * horizontalInrut;
 
         // Влияне гравитации на игрока
-        moveDirection.y -= 9.81f * Time.deltaTime;
+        moveDirection.y -= 100.0f * Time.deltaTime;
 
         // Проверка на корточки
         if (Input.GetKeyDown(KeyCode.C))
         {
-            isCrouching = !isCrouching; // Переключение состояния корточек
+            isCrouching = !isCrouching; // Переключение состояния на корточки
         }
 
         // Изменение скорости игрока
         if (isCrouching)
         {
+            characterController.height = 1.05f; // Высота персонажа на корточках
+
             currentSpeed = crouchSpeed;
         }
         else if (Input.GetKey(KeyCode.LeftShift))
         {
-            currentSpeed = runSpeed; // Если Shift нажат, скорость становится равной runSpeed
+            currentSpeed = runSpeed;
         }
         else
         {
+            characterController.height = 1.75f;
+
             currentSpeed = moveSpeed;
         }
 
