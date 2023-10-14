@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Скорость и Перемещение игрока
     private float currentSpeed = 0.0f; // Текущая скорость персоажа
-    private float moveSpeed = 5.0f; // Скорость перемещения персонажа при ходьбе
-    private float runSpeed = 10.0f; // Скорость перемещения персонажа при беге
-    private float crouchSpeed = 3.0f; // Скорость перемещения персонажа на корточках
 
+    public float moveSpeed; // Скорость перемещения персонажа при ходьбе
+    public float runSpeed; // Скорость перемещения персонажа при беге
+    public float crouchSpeed; // Скорость перемещения персонажа на корточках
+    [Range(1, 10)] public float smoothSpeed; // Плавное изменение скорости
+
+    // Ссостояние игрока 
     private bool isCrouching = false; // Состояния на корточках
 
+    public float standHeight; // Высота игрока при бездействии
+    public float crouchHeight; // Высота игрока на корточках
+
+    // Компоненты принадлежащие Player
     private CharacterController characterController;
 
     void Start()
@@ -47,25 +55,25 @@ public class PlayerController : MonoBehaviour
         // Изменение скорости игрока
         if (isCrouching)
         {
-            characterController.height = 1.05f; // Высота персонажа на корточках
+            characterController.height = crouchHeight; // Высота персонажа на корточках
 
-            currentSpeed = crouchSpeed;
+            currentSpeed = Mathf.Lerp(currentSpeed, crouchSpeed, Time.deltaTime * smoothSpeed);
         }
         else if (Input.GetKey(KeyCode.LeftShift))
         {
-            currentSpeed = runSpeed;
+            currentSpeed = Mathf.Lerp(currentSpeed, runSpeed, Time.deltaTime * smoothSpeed);
         }
         else
         {
-            characterController.height = 1.75f;
+            characterController.height = standHeight;
 
-            currentSpeed = moveSpeed;
+            currentSpeed = Mathf.Lerp(currentSpeed, moveSpeed, Time.deltaTime * smoothSpeed);
         }
 
         // Проверка на бег на корточках
         if (isCrouching && Input.GetKey(KeyCode.LeftShift))
         {
-            currentSpeed = crouchSpeed;
+            currentSpeed = Mathf.Lerp(currentSpeed, crouchSpeed, Time.deltaTime * smoothSpeed);
         }
 
         // Перемещаем игрока
