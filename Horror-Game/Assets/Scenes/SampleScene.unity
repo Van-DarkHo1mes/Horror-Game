@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 57959670}
   - component: {fileID: 57959671}
   - component: {fileID: 57959672}
+  - component: {fileID: 57959673}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -198,6 +199,22 @@ MonoBehaviour:
   smoothSpeed: 2.5
   standHeight: 1.75
   crouchHeight: 1.05
+--- !u!114 &57959673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57959669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a945be672f872124493df23d9f644974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item2Prefab: {fileID: 2853922851122144162, guid: 0727a2e3f1a1c414ba2feea5ce1f5e96, type: 3}
+  item3Prefab: {fileID: 6560101457167434988, guid: 3984d9e9ee338964ca85e6a5fbe17ce1, type: 3}
+  handController: {fileID: 761782094}
+  currentInventorySlot: 0
 --- !u!1 &239490606
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 761782093}
+  - component: {fileID: 761782094}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -702,6 +720,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 736772239}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &761782094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761782092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f75865a1596b249962c75bb59e98cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handTransform: {fileID: 761782093}
 --- !u!1 &770749256
 GameObject:
   m_ObjectHideFlags: 0
