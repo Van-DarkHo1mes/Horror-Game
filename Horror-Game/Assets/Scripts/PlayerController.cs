@@ -7,16 +7,16 @@ public class PlayerController : MonoBehaviour
     // Скорость и Перемещение игрока
     private float currentSpeed = 0.0f; // Текущая скорость персоажа
 
-    public float moveSpeed; // Скорость перемещения персонажа при ходьбе
-    public float runSpeed; // Скорость перемещения персонажа при беге
-    public float crouchSpeed; // Скорость перемещения персонажа на корточках
-    [Range(1, 10)] public float smoothSpeed; // Плавное изменение скорости
+    [SerializeField] private float moveSpeed; // Скорость перемещения персонажа при ходьбе
+    [SerializeField] private float runSpeed; // Скорость перемещения персонажа при беге
+    [SerializeField] private float crouchSpeed; // Скорость перемещения персонажа на корточках
+    [SerializeField][Range(1, 10)] private float smoothSpeed; // Плавное изменение скорости
 
     // Ссостояние игрока 
     private bool isCrouching = false; // Состояния на корточках
 
-    public float standHeight; // Высота игрока при бездействии
-    public float crouchHeight; // Высота игрока на корточках
+    [SerializeField] private float standHeight; // Высота игрока при бездействии
+    [SerializeField] private float crouchHeight; // Высота игрока на корточках
 
     // Компоненты принадлежащие Player
     private CharacterController characterController;

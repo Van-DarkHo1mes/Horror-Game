@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private float sensitivity = 2.0f; // Чувстчительность мыши
+    [SerializeField] private float sensitivity = 2.0f; // Чувстчительность мыши
     private float maxYAngle = 60.0f; // Максимальный угол вращения по вертикали
 
     private float rotationX = 0.0f;
