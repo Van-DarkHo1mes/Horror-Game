@@ -10,6 +10,6 @@ public class InventoryItem : ScriptableObject
     public Sprite itemIcon; // Иконка предмета для отображения в интерфейсе
     public GameObject itemPrefab; // Ссылка на префаб объекта в 3D-мире (например, модель фонарика или камеры)
     public bool isUsable; // Может ли предмет быть использован
-    public int itemValue; // Значение предмета, если применимо (например, ключи или ценные предметы)
-
+    public bool collectibles; // Предмет коллекционирования
+    public int itemValue; // Значение предмета, если применимо (например, ключи или ценные предметы) 
 }

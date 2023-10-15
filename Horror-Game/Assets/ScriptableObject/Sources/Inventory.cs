@@ -1,22 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] public List<InventoryItem> useItem = new List<InventoryItem>();
-    public List<InventoryItem> InventoryItems = new List<InventoryItem>();
+    public Action<InventoryItem> onItemAdded;
 
-    void Start()
+    [SerializeField] public List<InventoryItem> useItem = new List<InventoryItem>();
+    public List<InventoryItem> InventoryItems { get; private set; }
+
+    void Awake()
     {
+        InventoryItems = new List<InventoryItem>();
+
         for (int i = 0; i < useItem.Count; i++)
         {
             AddItem(useItem[i]);
         }
     }
 
-    private void AddItem(InventoryItem item)
+    public void AddItem(InventoryItem item)
     {
         InventoryItems.Add(item);
+
+        onItemAdded?.Invoke(item);
     }
 }
