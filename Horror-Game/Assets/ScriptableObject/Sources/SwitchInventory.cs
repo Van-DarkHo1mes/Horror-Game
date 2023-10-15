@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SwitchInventory : MonoBehaviour
 {
-    public GameObject item2Prefab; // Ссылка на префаб предмета 2 (например, фонарик)
-    public GameObject item3Prefab; // Ссылка на префаб предмета 3 (например, камера)
+    [SerializeField] private Inventory inventory;
+
     public HandController handController; // Ссылка на скрипт HandController
-    // Start is called before the first frame update
+
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -50,10 +50,10 @@ public class SwitchInventory : MonoBehaviour
                 handController.SwitchToItem(null);
                 break;
             case InventorySlot.Item2:
-                handController.SwitchToItem(item2Prefab);
+                handController.SwitchToItem(inventory.useItem[0].itemPrefab);
                 break;
             case InventorySlot.Item3:
-                handController.SwitchToItem(item3Prefab);
+                handController.SwitchToItem(inventory.useItem[1].itemPrefab);
                 break;
         }
     }

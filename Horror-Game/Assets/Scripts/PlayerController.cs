@@ -67,12 +67,6 @@ public class PlayerController : MonoBehaviour
 
             currentSpeed = Mathf.Lerp(currentSpeed, runSpeed, Time.deltaTime * smoothSpeed);
         }
-        else if (horizontalInrut == 0.0f && verticalInput == 0.0f)
-        {
-            animator.SetInteger("condition", 0);
-
-            currentSpeed = 0.0f; // Если длина вектора движения меньше пороговой величины, игрок считается неподвижным
-        }
         else
         {
             animator.SetInteger("condition", 1);

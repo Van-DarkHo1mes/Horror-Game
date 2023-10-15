@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 57959670}
   - component: {fileID: 57959671}
   - component: {fileID: 57959672}
-  - component: {fileID: 57959673}
   - component: {fileID: 57959674}
   m_Layer: 0
   m_Name: Capsule
@@ -200,22 +199,6 @@ MonoBehaviour:
   smoothSpeed: 2.5
   standHeight: 1.75
   crouchHeight: 1.05
---- !u!114 &57959673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57959669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a945be672f872124493df23d9f644974, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item2Prefab: {fileID: 2853922851122144162, guid: 0727a2e3f1a1c414ba2feea5ce1f5e96, type: 3}
-  item3Prefab: {fileID: 6560101457167434988, guid: 3984d9e9ee338964ca85e6a5fbe17ce1, type: 3}
-  handController: {fileID: 761782094}
-  currentInventorySlot: 0
 --- !u!95 &57959674
 Animator:
   serializedVersion: 7
@@ -385,6 +368,8 @@ GameObject:
   m_Component:
   - component: {fileID: 512419584}
   - component: {fileID: 512419585}
+  - component: {fileID: 512419587}
+  - component: {fileID: 512419586}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -422,6 +407,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpcCamera: {fileID: 736772241}
   maxDistanceRay: 2
+--- !u!114 &512419586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512419583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a945be672f872124493df23d9f644974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 512419587}
+  handController: {fileID: 761782094}
+  currentInventorySlot: 0
+--- !u!114 &512419587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512419583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea47ebb6b346b04ab275d8f6b7fd93b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useItem:
+  - {fileID: 11400000, guid: d423d97d49cf45142ae54a65d3c5c271, type: 2}
+  - {fileID: 11400000, guid: 2e115c84e7926014486090589c5ac83b, type: 2}
+  InventoryItems: []
 --- !u!1 &623618016
 GameObject:
   m_ObjectHideFlags: 0
